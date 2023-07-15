@@ -1,0 +1,175 @@
+* {
+    margin: 0%;
+    padding: 0%;
+    color: white;
+}
+
+body {
+    font-size: 120%;
+    font-family: 'Lato', sans-serif;
+    background-image: url('http://source.unsplash.com/1600x900/?landscape');
+}
+
+.container {
+    background-color: rgba(15, 15, 15, 0.6);
+    position: fixed;
+    width: 100%;
+    height: 200%;
+    padding-top: 10%;
+}
+
+.container-model {
+    display: flex;
+    justify-content: center;
+}
+
+.header {
+    font-size: 300%;
+    display: block;
+    font-family: 'Montserrat', sans-serif;
+    text-align: center;
+    margin-bottom: 0.5%;
+    background: linear-gradient(to right, red, yellow);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
+
+.subheader {
+    font-size: 100%;
+    text-align: center;
+    margin-bottom: 1%;
+    background: linear-gradient(to right, yellow, green);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
+
+.flex {
+    display: flex;
+    align-items: center;
+    width: 60px;
+    height: 70;
+}
+
+.card {
+    background-color: #000000b3;
+    color: #ffffff;
+    padding: 2em;
+    border-radius: 30px;
+    width: 100%;
+    max-width: 420px;
+}
+
+.description {
+    text-transform: capitalize;
+    margin-left: 8px;
+}
+
+.search {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding-bottom: 20px;
+}
+
+button {
+    margin: 0.5em;
+    border-radius: 50%;
+    border: none;
+    height: 44px;
+    width: 44px;
+    outline: none;
+    background: #c2c2c2;
+    color: #ffffff;
+    cursor: pointer;
+    transition: 0.2s ease-in-out;
+}
+
+input.search-bar {
+    border: none;
+    outline: none;
+    padding: 0.4em 1em;
+    border-radius: 24px;
+    background: #d8d8d8;
+    color: #ffffff;
+    font-family: inherit;
+    font-size: 120%;
+    width: calc(100% - 100px);
+}
+
+button:hover {
+    background: #f8db49;
+}
+
+.city {
+    text-align: center;
+}
+
+.h1.temp {
+    margin: 0;
+    margin-bottom: 0.4em;
+}
+
+.weather.loading {
+    visibility: hidden;
+    max-height: 20px;
+    position: relative;
+}
+
+.weather.loading:after {
+    visibility: visible;
+    content: "Enter a city to know about its geolocation info!";
+    font-family: 'Roboto', sans-serif;
+    color: white;
+    position: absolute;
+    top: 0;
+    left: 20px;
+}
+
+h2{
+    position: fixed;
+    right: 3%;
+    bottom: 2%;
+    background: linear-gradient(90deg, rgb(149, 255, 0), rgb(0, 209, 255));
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
+
+.current-time {
+    font-size: 24px;
+    position:fixed;
+    left: 9%;
+    bottom: 2.1%;
+    background: linear-gradient(90deg, rgb(149, 255, 0), rgb(255, 60, 0));
+     -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    }
+    
+h4 {
+    font-size: 28px;
+    position: fixed;
+    left: 3%;
+    bottom: 2%;
+    background: linear-gradient(90deg, rgb(149, 255, 0), rgb(0, 209, 255));
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
+
+h5 {
+    font-size: 28px;
+    position: fixed;
+    left: 38%;
+    bottom: 2%;
+    background: linear-gradient(90deg, rgb(149, 255, 0), rgb(0, 209, 255));
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
+
+.date {
+    font-size: 24px;
+    position: fixed;
+    left: 43%;
+    bottom: 2.1%;
+    background: linear-gradient(90deg, rgb(149, 255, 0), rgb(255, 60, 0));
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
