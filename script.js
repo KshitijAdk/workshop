@@ -1,69 +1,72 @@
-const weather = {
-    apiKey: "5277366efc22ee53ec239b2d6153696b",
-    fetchWeather: function (city) {
-        fetch(https://api.openweathermap.org/data/2.5/weather?q=${city}&units=metric&appid=${this.apiKey})
-            .then((response) => response.json())
-            .then((data) => this.displayWeather(data));
-    },
-    displayWeather: function (data) {
-        const { name, weather, main, wind } = data;
-        const { icon, description } = weather[0];
-        const { temp, humidity } = main;
-        const { speed } = wind;
+const searchInput = document.querySelector("#searchInput");
+const searchButton = document.querySelector("#searchButton");
+const weatherIcon = document.querySelector("#weatherIcon");
+const weather = document.querySelector("#weather");
+const desc = document.querySelector(".desc");
+const humidity = document.querySelector(".humidity");
+const pressure = document.querySelector(".pressure");
+const windSpeed = document.querySelector(".windSpeed");
+const API_KEY = "YOUR_API_KEY"; // Replace with your actual API key
 
-        document.querySelector(".city").innerText = Weather in ${name};
-        document.querySelector(".icon").src = http://openweathermap.org/img/wn/${icon}.png;
-        document.querySelector(".description").innerText = description;
-        document.querySelector(".temp").innerText = ${temp}°C;
-        document.querySelector(".humidity").innerText = Humidity: ${humidity}%;
-        document.querySelector(".wind").innerText = Wind Speed: ${speed} km/hr;
-
-        document.querySelector(".weather").classList.remove("loading");
-        document.body.style.backgroundImage = url('http://source.unsplash.com/1600x900/?${name}');
-    },
-    search: function () {
-        const city = document.querySelector(".search-bar").value;
-        if (city) {
-            this.fetchWeather(city);
-        }
-    },
+const setWeatherDetails = (data) => {
+  console.log(data);
+  desc.textContent = data.weather[0].description;
+  weather.textContent = Math.round(data.main.temp - 273.15) + "°C";
+  humidity.textContent = data.main.humidity + "%";
+  pressure.textContent = data.main.pressure + "hPa";
+  windSpeed.textContent = data.wind.speed + "km/h";
+  switch (data.weather[0].main) {
+    case "Clouds":
+      weatherIcon.src = "cloud.svg";
+      break;
+    case "Clear":
+      weatherIcon.src = "sun.svg";
+      break;
+    case "Rain":
+      weatherIcon.src = "rain.svg";
+      break;
+    case "Mist":
+      weatherIcon.src = "mist.svg";
+      break;
+    case "Snow":
+      weatherIcon.src = "snow.svg";
+      break;
+    case "Haze":
+      weatherIcon.src = "haze.svg";
+      break;
+  }
 };
 
-document.querySelector(".search button").addEventListener("click", function () {
-    weather.search();
+const callAPI = (id) => {
+  fetch(`https://api.openweathermap.org/data/2.5/weather?q=${searchInput.value}&appid=${id}`)
+    .then((response) => {
+      if (!response.ok) {
+        throw new Error(`Request failed with status ${response.status}`);
+      }
+      return response.json();
+    })
+    .then((data) => {
+      setWeatherDetails(data);
+    })
+    .catch((error) => {
+      console.log(error);
+      alert("Error occurred. Please try again.");
+    });
+};
+
+searchButton.addEventListener("click", () => {
+  if (searchInput.value.trim() === "") {
+    alert("Please enter a city name.");
+  } else {
+    callAPI(API_KEY);
+  }
 });
 
-document.querySelector(".search-bar").addEventListener("keyup", function (event) {
-    if (event.key === "Enter") {
-        weather.search();
-    }
+searchInput.addEventListener("keypress", (e) => {
+  if (e.key === "Enter") {
+    e.preventDefault();
+    searchButton.click();
+  }
 });
 
-weather.fetchWeather("Bridgend");
-
-function updateTime() {
-    const currentDateTime = new Date();
-
-    const hours = currentDateTime.getHours();
-    const minutes = currentDateTime.getMinutes();
-
-    const timeString = ${formatTimeComponent(hours)}:${formatTimeComponent(minutes)};
-    const currentTimeElement = document.querySelector('.current-time');
-    if (currentTimeElement) {
-        currentTimeElement.textContent = timeString;
-    }
-
-    const options = { weekday: 'long', year: 'numeric', month: 'long', day: 'numeric' };
-    const dateString = currentDateTime.toLocaleDateString(undefined, options);
-    const dateElement = document.querySelector('.date');
-    if (dateElement) {
-        dateElement.textContent = dateString;
-    }
-}
-
-function formatTimeComponent(timeComponent) {
-    return timeComponent.toString().padStart(2, '0');
-}
-
-updateTime();
-setInterval(updateTime, 1000);
+searchButton.click();

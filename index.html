@@ -1,54 +1,53 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>Weather App</title>
     <link rel="stylesheet" href="style.css">
-    <script src="script.js"></script>
+    <script src="https://kit.fontawesome.com/68d359d0e2.js" crossorigin="anonymous"></script>
 </head>
-
 <body>
-    <div class="container">
-        <div class="container-header">
-            <div class="header">Weather Forcast</div>
-            <div class="subheader">
-                <i>Know everything about the current weather everywhere</i>
+
+    <div class="mainContainer">
+        <div class="searchInput">
+            <input type="text" placeholder="Enter City Name..." id="searchInput" value="Bedford">
+            <button id="searchButton"><i class="fa-solid fa-magnifying-glass"></i></button>
+        </div>
+
+        <div class="weatherDetails">
+            <div class="weatherIcon">
+                <img src="" alt="Clouds" id="weatherIcon">
             </div>
 
-        </div>
-        <div class="container-model">
-            <div class="card">
-                <div class="search">
-                    <input type="text" class="search-bar" placeholder="City Name">
-                    <button>
-                        <svg fill="#000000" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="24px"
-                            height="1.2em">
-                            <path
-                                d="M9 2C5.1458514 2 2 5.1458514 2 9C2 12.854149 5.1458514 16 9 16C10.747998 16 12.345009 15.348024 13.574219 14.28125L14 14.707031L14 16L20 22L22 20L16 14L14.707031 14L14.28125 13.574219C15.348024 12.345009 16 10.747998 16 9C16 5.1458514 12.854149 2 9 2zM9 4C11.773268 4 14 6.2267316 14 9C14 11.773268 11.773268 14 9 14C6.2267316 14 4 11.773268 4 9C4 6.2267316 6.2267316 4 9 4z" />
-                        </svg>
-                    </button>
-                </div>
-                <div class="weather loading">
-                    <h3 class="city"></h3>
-                    <h1 class="temp">Temperature :</h1>
-                    <div class="flex">
-                        <img src="" alt="" class="icon">
-                        <div class="description">Description :</div>
+            <div class="cityDetails">
+                <div class="weather" id="weather"></div>
+                <div class="desc"></div>
+            </div>
+
+            <div class="windDetails">
+                <div class="humidityBox">
+                    <img src="hunidity.png" alt="Humidity">
+                    <div>
+                        <p class="humidity"></p><span>Humidity</span>
                     </div>
-                    <div class="humidity">Humidity :</div>
-                    <div class="wind">Wind Speed:</div>
+                </div>
+                <div class="pressureBox">
+                    <img src="hunidity.png" alt="Pressure">
+                    <div>
+                        <p class="pressure"></p><span>Pressure</span>
+                    </div>
+                </div>
+                <div class="windSpeed">
+                    <img src="wind.png" alt="Wind Speed">
+                    <div>
+                        <p class="windSpeed"></p><span>Wind Speed</span>
+                    </div>
                 </div>
             </div>
         </div>
-        <div class="current-time"></div>
-        <h4>Time: </h4>
-        <div class="date"></div>
-        <h5>Date:</h5>
-
-        <h2>Made by Swarup Devkota</h2>
     </div>
-</body>
 
+    <script src="script.js"></script>
+</body>
 </html>

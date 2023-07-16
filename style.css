@@ -1,175 +1,138 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins&display=swap');
+
 * {
-    margin: 0%;
-    padding: 0%;
-    color: white;
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: "Poppins", sans-serif;
 }
 
 body {
-    font-size: 120%;
-    font-family: 'Lato', sans-serif;
-    background-image: url('http://source.unsplash.com/1600x900/?landscape');
-}
-
-.container {
-    background-color: rgba(15, 15, 15, 0.6);
-    position: fixed;
-    width: 100%;
-    height: 200%;
-    padding-top: 10%;
-}
-
-.container-model {
     display: flex;
+    height: 100vh;
+    align-items: center;
+    justify-content: center;
+    background-color: yellowgreen;
+}
+
+.mainContainer {
+    width: 35rem;
+    height: 35rem;
+    border-radius: 1rem;
+    background: #fff;
+}
+
+.searchInput {
+    width: 100%;
+    display: flex;
+    padding: 1rem;
     justify-content: center;
 }
 
-.header {
-    font-size: 300%;
-    display: block;
-    font-family: 'Montserrat', sans-serif;
-    text-align: center;
-    margin-bottom: 0.5%;
-    background: linear-gradient(to right, red, yellow);
-    -webkit-background-clip: text;
-    -webkit-text-fill-color: transparent;
-}
-
-.subheader {
-    font-size: 100%;
-    text-align: center;
-    margin-bottom: 1%;
-    background: linear-gradient(to right, yellow, green);
-    -webkit-background-clip: text;
-    -webkit-text-fill-color: transparent;
-}
-
-.flex {
-    display: flex;
-    align-items: center;
-    width: 60px;
-    height: 70;
-}
-
-.card {
-    background-color: #000000b3;
-    color: #ffffff;
-    padding: 2em;
-    border-radius: 30px;
+.searchInput input {
     width: 100%;
-    max-width: 420px;
-}
-
-.description {
-    text-transform: capitalize;
-    margin-left: 8px;
-}
-
-.search {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    padding-bottom: 20px;
-}
-
-button {
-    margin: 0.5em;
-    border-radius: 50%;
-    border: none;
-    height: 44px;
-    width: 44px;
+    height: 2rem;
     outline: none;
-    background: #c2c2c2;
-    color: #ffffff;
+    font-size: 0.8rem;
+    color: black;
+    padding: 0.5rem;
+    border-radius: 1rem;
+    border: 1px solid gray;
+}
+
+.searchInput input:focus {
+    border: 1px solid rgb(1, 60, 80);
+}
+
+.searchInput button {
+    width: 2rem;
+    height: 2rem;
     cursor: pointer;
-    transition: 0.2s ease-in-out;
+    color: gray;
+    border-radius: 50%;
+    margin-left: 0.5rem;
+    background-color: #fff;
+    border: 1px solid rgb(70, 66, 66);
+    transition: all 0.3s ease;
 }
 
-input.search-bar {
-    border: none;
-    outline: none;
-    padding: 0.4em 1em;
-    border-radius: 24px;
-    background: #d8d8d8;
-    color: #ffffff;
-    font-family: inherit;
-    font-size: 120%;
-    width: calc(100% - 100px);
+.searchInput button:hover {
+    color: #fff;
+    background-color: rgb(163, 132, 163);
+    border: 1px solid rgb(165, 130, 165);
 }
 
-button:hover {
-    background: #f8db49;
+
+.weatherIcon {
+    display: flex;
+    padding-top: 0.5rem;
+    padding-bottom: 0.5rem;
 }
 
-.city {
+.weatherIcon img {
+    max-width: 100%;
+    width: 8rem;
+}
+
+.cityDetails {
+    color: rgb(62, 25, 25);
+    font-size: 2.5rem;
     text-align: center;
+    margin-bottom: 3rem;
 }
 
-.h1.temp {
-    margin: 0;
-    margin-bottom: 0.4em;
+.windDetails {
+    display: flex;
+    margin-top: 1rem;
+    margin-bottom: 1.5rem;
+    justify-content: space-around;
+    display: contents;
 }
 
-.weather.loading {
-    visibility: hidden;
-    max-height: 20px;
-    position: relative;
+.windDetails .humidityBox {
+    display: flex;
+    font-size: 1rem;
+    color:rgb(62, 25, 25);
+    background-color: rgb(172, 167, 167);
+    width: 50%;
+    border-radius: 2rem;
+    margin-bottom: 1rem;
+    margin-left: 10rem;
 }
 
-.weather.loading:after {
-    visibility: visible;
-    content: "Enter a city to know about its geolocation info!";
-    font-family: 'Roboto', sans-serif;
-    color: white;
-    position: absolute;
-    top: 0;
-    left: 20px;
+.windDetails .humidityBox img {
+    max-height: 4rem;
+    margin-right: 0.5rem;
 }
 
-h2{
-    position: fixed;
-    right: 3%;
-    bottom: 2%;
-    background: linear-gradient(90deg, rgb(149, 255, 0), rgb(0, 209, 255));
-    -webkit-background-clip: text;
-    -webkit-text-fill-color: transparent;
+.windDetails .pressureBox {
+    display: flex;
+    font-size: 1rem;
+    color:rgb(62, 25, 25);
+    background-color: rgb(172, 167, 167);
+    width: 50%;
+    border-radius: 2rem;
+    margin-bottom: 1rem;
+    margin-left: 10rem;
 }
 
-.current-time {
-    font-size: 24px;
-    position:fixed;
-    left: 9%;
-    bottom: 2.1%;
-    background: linear-gradient(90deg, rgb(149, 255, 0), rgb(255, 60, 0));
-     -webkit-background-clip: text;
-    -webkit-text-fill-color: transparent;
-    }
-    
-h4 {
-    font-size: 28px;
-    position: fixed;
-    left: 3%;
-    bottom: 2%;
-    background: linear-gradient(90deg, rgb(149, 255, 0), rgb(0, 209, 255));
-    -webkit-background-clip: text;
-    -webkit-text-fill-color: transparent;
+.windDetails .pressureBox img {
+    max-height: 4rem;
+    margin-right: 0.5rem;
 }
 
-h5 {
-    font-size: 28px;
-    position: fixed;
-    left: 38%;
-    bottom: 2%;
-    background: linear-gradient(90deg, rgb(149, 255, 0), rgb(0, 209, 255));
-    -webkit-background-clip: text;
-    -webkit-text-fill-color: transparent;
+.windDetails .windSpeed {
+    display: flex;
+    font-size: 1rem;
+    color:rgb(62, 25, 25);
+    background-color: rgb(172, 167, 167);
+    width: 50%;
+    border-radius: 2rem;
+    margin-left: 10rem;
 }
 
-.date {
-    font-size: 24px;
-    position: fixed;
-    left: 43%;
-    bottom: 2.1%;
-    background: linear-gradient(90deg, rgb(149, 255, 0), rgb(255, 60, 0));
-    -webkit-background-clip: text;
-    -webkit-text-fill-color: transparent;
+.windDetails .windSpeed img {
+    max-height: 4rem;
+    margin-right: 0.5rem;
 }
+
